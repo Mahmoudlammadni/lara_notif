@@ -14,10 +14,12 @@ class MyNotif extends Notification
     /**
      * Create a new notification instance.
      */
-    public function __construct()
-    {
-        //
-    }
+  protected $message;
+
+public function __construct($message)
+{
+    $this->message = $message;
+}
 
     /**
      * Get the notification's delivery channels.
@@ -29,13 +31,16 @@ class MyNotif extends Notification
     return ['database'];
 }
 
-public function toDatabase(object $notifiable): array
+
+
+public function toDatabase($notifiable)
 {
     return [
-        'message' => 'Your order has been shipped!',
-        'url' => url('/orders/123')
+        'message' => $this->message,
+        'url' => url('/products')
     ];
 }
+
 
 
 

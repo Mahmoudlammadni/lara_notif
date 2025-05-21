@@ -118,9 +118,10 @@
                     <div class="product-card">
                         <h2 class="product-name">{{ $product->name }}</h2>
                         <p class="product-price">${{ number_format($product->price, 2) }}</p>
-                        <form action="{{ route('buy.product', $product->id) }}" method="POST">
+                        <form action="/buy" method="POST">
                             @csrf
-                            <button type="submit" class="buy-btn">Add to Cart</button>
+                               <input type="hidden" name="product_id" value="{{ $product->id }}">
+                                 <button type="submit" class="buy-btn">>Add to Cart</button>
                         </form>
                     </div>
                 @endforeach

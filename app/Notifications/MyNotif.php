@@ -32,12 +32,11 @@ public function __construct($message)
 }
 
 
-
 public function toDatabase($notifiable)
 {
     return [
         'message' => $this->message,
-        'url' => url('/products')
+        
     ];
 }
 

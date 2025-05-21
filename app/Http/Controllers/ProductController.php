@@ -18,7 +18,7 @@ public function buy(Request $request)
         return redirect('/products')->with('error', 'Product not found.');
     }
 
-    $user = Auth::user(); 
+    $user = Auth::user();
     $user->notify(new MyNotif("You have bought the product: {$product->name}"));
 
     // Redirect to products view with $user and products

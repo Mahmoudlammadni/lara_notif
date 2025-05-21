@@ -106,6 +106,12 @@
 <body>
     <h1>Welcome {{ $user->name }}</h1>
 <p>You have logged in successfully at {{ now() }}</p>
+@foreach(auth()->user()->notifications as $notification)
+    <div class="notification">
+        {{ $notification->data['message'] }}
+    </div>
+@endforeach
+
     <div class="container">
 
         <h1>Available Products</h1>

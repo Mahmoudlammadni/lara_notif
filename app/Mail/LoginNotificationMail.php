@@ -22,5 +22,8 @@ class LoginNotificationMail extends Mailable
         return $this->subject('Login Alert')
                     ->view('emails.login')
                     ->with(['user' => $this->user]);
+
+ // html("<p> hello{$this->user}</p>");
     }
+
 }
